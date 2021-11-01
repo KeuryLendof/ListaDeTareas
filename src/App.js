@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Formulario from './componentes/Formulario';
 import Tarea from './componentes/Tarea';
 import './App.css';
@@ -6,7 +6,7 @@ import './App.css';
 function App() {
   const [verPDF, setVerPDF] = React.useState(false);
   const[listaTareas, setListaTareas] = useState([]);
-
+  const KEY = "myapp.listaTareas"
   const nuevaTarea = (tarea) => {
     setListaTareas([tarea, ...listaTareas])//los 3 pts hace como si fuese una copia
   }
@@ -27,6 +27,19 @@ function App() {
 
     setListaTareas(listaActualizada)
   }
+
+  useEffect(()=>{
+    const storeTareas = JSON.parse(localStorage.getItem(KEY));
+    if(storeTareas){
+      setListaTareas(storeTareas);
+    }
+  }
+  
+  ,[])
+  useEffect(() => {
+    localStorage.setItem(KEY, JSON.stringify(listaTareas));
+  }
+  ,[listaTareas])
 
   return (
     <div className="App">

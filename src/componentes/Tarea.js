@@ -30,6 +30,8 @@ const Tarea = (props) =>{
         props.borrar(props.id);
     }
 
+    
+
     return(
         <div>
             {
