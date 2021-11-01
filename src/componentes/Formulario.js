@@ -20,13 +20,12 @@ const Formulario = (props) => {
         }
     }
 
-
     return(
         <div>
-            <form className="form" onSubmit={submit}>
-                <span>Añadir tarea</span>
+            <form className="form" onSubmit={submit}><br></br>
+                <span>Añadir tarea</span><br></br><br></br>
                 <input value = {texto} onChange={manejarFormulario} />
-                <button>Añadir</button>
+                <button>Añadir</button> <br></br>
             </form>
             {
                 !validacion &&

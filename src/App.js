@@ -4,6 +4,7 @@ import Tarea from './componentes/Tarea';
 import './App.css';
 
 function App() {
+  const [verPDF, setVerPDF] = React.useState(false);
   const[listaTareas, setListaTareas] = useState([]);
 
   const nuevaTarea = (tarea) => {
@@ -27,13 +28,12 @@ function App() {
     setListaTareas(listaActualizada)
   }
 
-
-
   return (
     <div className="App">
       <Formulario 
         nuevaTarea = {nuevaTarea}
       />
+      
       <div className="listas">
         {
           listaTareas.map((e, index) => <Tarea
@@ -44,7 +44,6 @@ function App() {
             />)
         }
       </div>
-
     </div>
   );
 }
