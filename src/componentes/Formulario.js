@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import swal from 'sweetalert';
 import '../App.css';
 
 const Formulario = (props) => {
@@ -15,6 +16,7 @@ const Formulario = (props) => {
             props.nuevaTarea(texto);
             tomarTexto("");
             setValidacion(true);
+            swal("Good job!", "Tarea agregada correctamente!", "success");
         }else{
             setValidacion(false)
         }

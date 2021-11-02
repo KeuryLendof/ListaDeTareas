@@ -34,7 +34,6 @@ function App() {
       setListaTareas(storeTareas);
     }
   }
-  
   ,[])
   useEffect(() => {
     localStorage.setItem(KEY, JSON.stringify(listaTareas));

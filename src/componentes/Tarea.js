@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import swal from 'sweetalert';
 import '../App.css';
 
 /* QUI ESTAMOS IMPORTANDO LOS ICONOS DE ECITAR Y BORRAR DE UNA LIBRERIA DE ICONOS QUE TIENE REACT Y LO INSTALAMOS CON npm install react-icons --save */
@@ -12,7 +13,6 @@ const Tarea = (props) =>{
 
     const editarTarea = () => {
         setModoEdit(true)
-        
     }
 
     const manejarEdit =(event) => {
@@ -27,8 +27,26 @@ const Tarea = (props) =>{
     }
 
     const borrarTarea = () => {
-        props.borrar(props.id);
+        swal({
+            title: "Estas seguro?",
+            text: "Una vez eliminado, ¡no podrá recuperar esta tarea!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+        .then((willDelete) => {
+            if (willDelete) {
+              props.borrar(props.id)
+              swal("Su tarea a sido borrada correctamente!", {
+                icon: "success",
+              });
+            } else {
+              swal("No se borro su tarea!");
+            }
+        });
     }
+
+    
 
     
 
