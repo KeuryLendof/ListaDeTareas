@@ -4,14 +4,20 @@ import Tarea from './componentes/Tarea';
 import './App.css';
 
 function App() {
-  const [verPDF, setVerPDF] = React.useState(false);
   const[listaTareas, setListaTareas] = useState([]);
   const KEY = "myapp.listaTareas"
-  const nuevaTarea = (tarea) => {
+  const nuevaTarea = (tarea) => { /*setListaTareas ESTE ES UN ARRAY DONDE CONTIENE LA LISTA DE TODAS LAS TAREAS */
     setListaTareas([tarea, ...listaTareas])//los 3 pts hace como si fuese una copia
   }
 
+/*PUEDES ELIMINAR LA TAREA */
   const borrar = (id) =>{
+    const listaFiltrada = listaTareas.filter((e, index)=> index !== id);
+    setListaTareas(listaFiltrada);
+  }
+
+  /*SI LA TAREA ESTA LISTA PUEDES ELIMINARLA */
+  const tarealista = (id) =>{
     const listaFiltrada = listaTareas.filter((e, index)=> index !== id);
     setListaTareas(listaFiltrada);
   }
@@ -53,6 +59,7 @@ function App() {
             borrar={borrar}
             id={index}
             editar={actTarea}
+            tarealista={borrar}
             />)
         }
       </div>

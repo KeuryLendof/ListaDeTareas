@@ -6,6 +6,7 @@ import '../App.css';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import { RiCloseCircleLine } from 'react-icons/ri';
 import { TiEdit } from 'react-icons/ti';
+import { TiInputCheckedOutline } from 'react-icons/ti';
 
 const Tarea = (props) =>{
     const [modoEdit, setModoEdit] = useState(false);
@@ -26,10 +27,10 @@ const Tarea = (props) =>{
         setModoEdit(false)
     }
 
-    const borrarTarea = () => {
+    const borrarTarea = () => {/*MENSAJE QUE APARECE A LA HORA DE ELIMINAR UNA TAREA */
         swal({
-            title: "Estas seguro?",
-            text: "Una vez eliminado, ¡no podrá recuperar esta tarea!",
+            title: "¿Estas seguro?",
+            text: "Una vez eliminada, ¡no podrá recuperar esta tarea!",
             icon: "warning",
             buttons: true,
             dangerMode: true,
@@ -46,7 +47,29 @@ const Tarea = (props) =>{
         });
     }
 
-    
+    const tarealistaBorrar = () => {/*MENSAJE QUE APARECE A LA HORA DE ELIMINAR UNA TAREA */
+        swal({
+            title: "¿Estas seguro?",
+            text: "Una vez hecha la tarea se eliminará, !no podrá recuperar esta tarea!",
+            icon: "info",
+            buttons: true,
+            dangerMode: true,
+        })
+        .then((willDelete) => {
+            if (willDelete) {
+              props.borrar(props.id)
+              swal("Su tarea ya esta hecha e eliminada!", {
+                icon: "success",
+              });
+            } else {
+              swal("No hiciste la tarea!", {
+                icon: "error",
+                });
+                
+            }
+        });
+
+    }
 
     
 
@@ -64,6 +87,10 @@ const Tarea = (props) =>{
                         <TiEdit
                         onClick={editarTarea}
                         className='edit-icon'
+                        />
+                        <TiInputCheckedOutline 
+                        onClick={tarealistaBorrar}
+                        className='tareaHecha-icon'
                         />
                     </div>
                    {/* <button onClick={editarTarea}>Editar</button>

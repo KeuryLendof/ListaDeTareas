@@ -29,7 +29,7 @@ const Formulario = (props) => {
                 <input value = {texto} onChange={manejarFormulario} />
                 <button>Añadir</button> <br></br>
             </form>
-            {
+            {/* VERIFICA NO HEMOS PUESTO UNA TAREA Y SI ES ASI NOS TIRA UN ERROR*/
                 !validacion &&
                 <div className="validacion">
                     Añada una tarea por favor!
