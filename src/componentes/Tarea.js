@@ -10,7 +10,7 @@ import { TiInputCheckedOutline } from 'react-icons/ti';
 
 const Tarea = (props) =>{
     const [modoEdit, setModoEdit] = useState(false);
-    const [editText, setEditText] = useState("");
+    const [editText, setEditText] = useState(props.tarea);
 
     const editarTarea = () => {
         setModoEdit(true)
