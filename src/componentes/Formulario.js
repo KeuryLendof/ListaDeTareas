@@ -19,6 +19,7 @@ const Formulario = (props) => {
             swal("Good job!", "Tarea agregada correctamente!", "success");
         }else{
             setValidacion(false)
+            swal ( "Oops" ,  "Something went wrong!" ,  "error" )
         }
     }
 
@@ -32,7 +33,6 @@ const Formulario = (props) => {
             {/* VERIFICA NO HEMOS PUESTO UNA TAREA Y SI ES ASI NOS TIRA UN ERROR*/
                 !validacion &&
                 <div className="validacion">
-                    Añada una tarea por favor!
                 </div>
                 
             }

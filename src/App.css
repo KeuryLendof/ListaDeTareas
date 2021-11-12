@@ -110,8 +110,8 @@ h6{
 .lista{
   font-size: 20px;
   margin: 20px 0 15px 0;
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
+  /* display: grid;
+  grid-template-columns: 2fr 1fr 1fr; */
   display: flex;
   justify-content: space-between;
   align-items: center;
